@@ -37,46 +37,10 @@ exports.authenticate = (credential)=>{
 
    }, {validEmail:false, validPassword:false, user:null})
 
-    // ternary opertoar   ()?true:false
-    // if() else
-    // truthy falsy
+     
    const auth0 = authUser.user ? {user:authUser.user}: formatErrors(authUser);
    return auth0
 
-}
-
-exports.validate = (info) =>
-{
-  const {email, password} = {...info};
-
-  let valid = true;
-  // object for validation
-  let auth;
-  // trim() to remove white spaces
-  if ((email.trim().length == 0)) 
-  {
-    valid = false;
-  }
-  if ((password.trim()).length == 0)
-  {
-    valid = false;
-  }
-  // check if valid
-  if (valid)
-  {
-    auth = {
-      email:null,
-      password:null
-    }
-  }
-  else
-  {
-    auth = {
-      email:"Please input an email.",
-      password:"Please input a password."
-    }
-  }
-  return auth;
 }
  
 const formatErrors = function(user){
